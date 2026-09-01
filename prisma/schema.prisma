@@ -37,6 +37,23 @@ enum DataQuality {
   ESTIMATED
 }
 
+enum EvidenceStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  DUPLICATE
+  SUSPICIOUS
+}
+
+enum EvidenceAuditAction {
+  UPLOADED
+  DUPLICATE_DETECTED
+  FLAGGED
+  VERIFIED
+  REJECTED
+  XP_AWARDED
+}
+
 model User {
   id            String  @id
   name          String
@@ -67,6 +84,10 @@ model User {
   xp           Int          @default(0)
   rewardPoints Int          @default(0)
   socialPosts  SocialPost[]
+
+  evidenceSubmissions EvidenceSubmission[] @relation("EvidenceSubmittedBy")
+  reviewedEvidence    EvidenceSubmission[] @relation("EvidenceReviewedBy")
+  evidenceAuditLogs   EvidenceAuditLog[]   @relation("EvidenceAuditActor")
 
   @@index([organizationId])
   @@index([departmentId])
@@ -145,10 +166,11 @@ model Organization {
   departments Department[]
   employees   User[]
 
-  emissionFactors  EmissionFactor[]
-  carbonRecords    CarbonRecord[]
-  emissionPolicies EmissionPolicy[]
-  socialPosts      SocialPost[]
+  emissionFactors     EmissionFactor[]
+  carbonRecords       CarbonRecord[]
+  emissionPolicies    EmissionPolicy[]
+  socialPosts         SocialPost[]
+  evidenceSubmissions EvidenceSubmission[]
 
   @@index([name])
   @@map("organization")
@@ -171,10 +193,11 @@ model Department {
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
-  employees        User[]
-  carbonRecords    CarbonRecord[]
-  emissionPolicies EmissionPolicy[]
-  socialPosts      SocialPost[]
+  employees           User[]
+  carbonRecords       CarbonRecord[]
+  emissionPolicies    EmissionPolicy[]
+  socialPosts         SocialPost[]
+  evidenceSubmissions EvidenceSubmission[]
 
   @@unique([organizationId, code])
   @@index([organizationId])
@@ -288,7 +311,8 @@ model CarbonRecord {
   submittedBy User  @relation("SubmittedCarbonRecords", fields: [submittedById], references: [id], onDelete: Restrict)
   approvedBy  User? @relation("ApprovedCarbonRecords", fields: [approvedById], references: [id], onDelete: SetNull)
 
-  emissionFactor EmissionFactor @relation(fields: [emissionFactorId], references: [id], onDelete: Restrict)
+  emissionFactor      EmissionFactor       @relation(fields: [emissionFactorId], references: [id], onDelete: Restrict)
+  evidenceSubmissions EvidenceSubmission[]
 
   @@index([organizationId])
   @@index([departmentId])
@@ -349,4 +373,94 @@ model SocialPost {
   @@index([authorId])
   @@index([createdAt])
   @@map("social_post")
+}
+
+model EvidenceSubmission {
+  id String @id @default(cuid())
+
+  organizationId String
+  departmentId   String
+  submittedById  String
+  reviewedById   String?
+  carbonRecordId String?
+
+  fileUrl    String
+  storageKey String?
+  fileName   String
+  mimeType   String
+  fileSize   Int
+
+  sha256Hash     String @db.VarChar(64)
+  perceptualHash String @db.VarChar(64)
+
+  width  Int?
+  height Int?
+
+  capturedAt DateTime?
+  latitude   Decimal?  @db.Decimal(10, 7)
+  longitude  Decimal?  @db.Decimal(10, 7)
+
+  challengeCode String?
+  description   String? @db.Text
+  metadataJson  String? @db.Text
+
+  status EvidenceStatus @default(PENDING)
+
+  duplicateOfId   String?
+  similarityScore Decimal? @db.Decimal(5, 2)
+
+  reviewedAt  DateTime?
+  reviewNotes String?   @db.Text
+
+  xpAwarded     Int @default(0)
+  pointsAwarded Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  department   Department    @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  submittedBy  User          @relation("EvidenceSubmittedBy", fields: [submittedById], references: [id], onDelete: Cascade)
+  reviewedBy   User?         @relation("EvidenceReviewedBy", fields: [reviewedById], references: [id], onDelete: SetNull)
+  carbonRecord CarbonRecord? @relation(fields: [carbonRecordId], references: [id], onDelete: SetNull)
+
+  duplicateOf EvidenceSubmission?  @relation("EvidenceDuplicates", fields: [duplicateOfId], references: [id], onDelete: SetNull)
+  duplicates  EvidenceSubmission[] @relation("EvidenceDuplicates")
+
+  auditLogs EvidenceAuditLog[]
+
+  @@unique([organizationId, sha256Hash])
+  @@index([organizationId, perceptualHash])
+  @@index([departmentId])
+  @@index([submittedById])
+  @@index([reviewedById])
+  @@index([carbonRecordId])
+  @@index([duplicateOfId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("evidence_submission")
+}
+
+model EvidenceAuditLog {
+  id String @id @default(cuid())
+
+  evidenceId String
+  actorId    String?
+
+  action EvidenceAuditAction
+
+  details        String?         @db.Text
+  previousStatus EvidenceStatus?
+  newStatus      EvidenceStatus?
+
+  createdAt DateTime @default(now())
+
+  evidence EvidenceSubmission @relation(fields: [evidenceId], references: [id], onDelete: Cascade)
+  actor    User?              @relation("EvidenceAuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([evidenceId])
+  @@index([actorId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("evidence_audit_log")
 }

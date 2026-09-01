@@ -393,7 +393,9 @@ export const ModelName = {
   EmissionFactor: 'EmissionFactor',
   CarbonRecord: 'CarbonRecord',
   EmissionPolicy: 'EmissionPolicy',
-  SocialPost: 'SocialPost'
+  SocialPost: 'SocialPost',
+  EvidenceSubmission: 'EvidenceSubmission',
+  EvidenceAuditLog: 'EvidenceAuditLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -409,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "account" | "verification" | "organization" | "department" | "emissionFactor" | "carbonRecord" | "emissionPolicy" | "socialPost"
+    modelProps: "user" | "session" | "account" | "verification" | "organization" | "department" | "emissionFactor" | "carbonRecord" | "emissionPolicy" | "socialPost" | "evidenceSubmission" | "evidenceAuditLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1073,6 +1075,138 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EvidenceSubmission: {
+      payload: Prisma.$EvidenceSubmissionPayload<ExtArgs>
+      fields: Prisma.EvidenceSubmissionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EvidenceSubmissionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EvidenceSubmissionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        findFirst: {
+          args: Prisma.EvidenceSubmissionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EvidenceSubmissionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        findMany: {
+          args: Prisma.EvidenceSubmissionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>[]
+        }
+        create: {
+          args: Prisma.EvidenceSubmissionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        createMany: {
+          args: Prisma.EvidenceSubmissionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.EvidenceSubmissionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        update: {
+          args: Prisma.EvidenceSubmissionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EvidenceSubmissionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EvidenceSubmissionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.EvidenceSubmissionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceSubmissionPayload>
+        }
+        aggregate: {
+          args: Prisma.EvidenceSubmissionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEvidenceSubmission>
+        }
+        groupBy: {
+          args: Prisma.EvidenceSubmissionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EvidenceSubmissionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EvidenceSubmissionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EvidenceSubmissionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EvidenceAuditLog: {
+      payload: Prisma.$EvidenceAuditLogPayload<ExtArgs>
+      fields: Prisma.EvidenceAuditLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EvidenceAuditLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EvidenceAuditLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        findFirst: {
+          args: Prisma.EvidenceAuditLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EvidenceAuditLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        findMany: {
+          args: Prisma.EvidenceAuditLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>[]
+        }
+        create: {
+          args: Prisma.EvidenceAuditLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        createMany: {
+          args: Prisma.EvidenceAuditLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.EvidenceAuditLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        update: {
+          args: Prisma.EvidenceAuditLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.EvidenceAuditLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EvidenceAuditLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.EvidenceAuditLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EvidenceAuditLogPayload>
+        }
+        aggregate: {
+          args: Prisma.EvidenceAuditLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEvidenceAuditLog>
+        }
+        groupBy: {
+          args: Prisma.EvidenceAuditLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EvidenceAuditLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EvidenceAuditLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EvidenceAuditLogCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1310,6 +1444,56 @@ export const SocialPostScalarFieldEnum = {
 export type SocialPostScalarFieldEnum = (typeof SocialPostScalarFieldEnum)[keyof typeof SocialPostScalarFieldEnum]
 
 
+export const EvidenceSubmissionScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  departmentId: 'departmentId',
+  submittedById: 'submittedById',
+  reviewedById: 'reviewedById',
+  carbonRecordId: 'carbonRecordId',
+  fileUrl: 'fileUrl',
+  storageKey: 'storageKey',
+  fileName: 'fileName',
+  mimeType: 'mimeType',
+  fileSize: 'fileSize',
+  sha256Hash: 'sha256Hash',
+  perceptualHash: 'perceptualHash',
+  width: 'width',
+  height: 'height',
+  capturedAt: 'capturedAt',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  challengeCode: 'challengeCode',
+  description: 'description',
+  metadataJson: 'metadataJson',
+  status: 'status',
+  duplicateOfId: 'duplicateOfId',
+  similarityScore: 'similarityScore',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  xpAwarded: 'xpAwarded',
+  pointsAwarded: 'pointsAwarded',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EvidenceSubmissionScalarFieldEnum = (typeof EvidenceSubmissionScalarFieldEnum)[keyof typeof EvidenceSubmissionScalarFieldEnum]
+
+
+export const EvidenceAuditLogScalarFieldEnum = {
+  id: 'id',
+  evidenceId: 'evidenceId',
+  actorId: 'actorId',
+  action: 'action',
+  details: 'details',
+  previousStatus: 'previousStatus',
+  newStatus: 'newStatus',
+  createdAt: 'createdAt'
+} as const
+
+export type EvidenceAuditLogScalarFieldEnum = (typeof EvidenceAuditLogScalarFieldEnum)[keyof typeof EvidenceAuditLogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1473,6 +1657,39 @@ export const SocialPostOrderByRelevanceFieldEnum = {
 export type SocialPostOrderByRelevanceFieldEnum = (typeof SocialPostOrderByRelevanceFieldEnum)[keyof typeof SocialPostOrderByRelevanceFieldEnum]
 
 
+export const EvidenceSubmissionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  departmentId: 'departmentId',
+  submittedById: 'submittedById',
+  reviewedById: 'reviewedById',
+  carbonRecordId: 'carbonRecordId',
+  fileUrl: 'fileUrl',
+  storageKey: 'storageKey',
+  fileName: 'fileName',
+  mimeType: 'mimeType',
+  sha256Hash: 'sha256Hash',
+  perceptualHash: 'perceptualHash',
+  challengeCode: 'challengeCode',
+  description: 'description',
+  metadataJson: 'metadataJson',
+  duplicateOfId: 'duplicateOfId',
+  reviewNotes: 'reviewNotes'
+} as const
+
+export type EvidenceSubmissionOrderByRelevanceFieldEnum = (typeof EvidenceSubmissionOrderByRelevanceFieldEnum)[keyof typeof EvidenceSubmissionOrderByRelevanceFieldEnum]
+
+
+export const EvidenceAuditLogOrderByRelevanceFieldEnum = {
+  id: 'id',
+  evidenceId: 'evidenceId',
+  actorId: 'actorId',
+  details: 'details'
+} as const
+
+export type EvidenceAuditLogOrderByRelevanceFieldEnum = (typeof EvidenceAuditLogOrderByRelevanceFieldEnum)[keyof typeof EvidenceAuditLogOrderByRelevanceFieldEnum]
+
+
 
 /**
  * Field references
@@ -1546,6 +1763,20 @@ export type EnumDataQualityFieldRefInput<$PrismaModel> = FieldRefInputType<$Pris
  * Reference to a field of type 'CarbonRecordStatus'
  */
 export type EnumCarbonRecordStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CarbonRecordStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EvidenceStatus'
+ */
+export type EnumEvidenceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EvidenceStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EvidenceAuditAction'
+ */
+export type EnumEvidenceAuditActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EvidenceAuditAction'>
     
 
 
@@ -1675,6 +1906,8 @@ export type GlobalOmitConfig = {
   carbonRecord?: Prisma.CarbonRecordOmit
   emissionPolicy?: Prisma.EmissionPolicyOmit
   socialPost?: Prisma.SocialPostOmit
+  evidenceSubmission?: Prisma.EvidenceSubmissionOmit
+  evidenceAuditLog?: Prisma.EvidenceAuditLogOmit
 }
 
 /* Types for Logging */

@@ -52,3 +52,26 @@ export const DataQuality = {
 } as const
 
 export type DataQuality = (typeof DataQuality)[keyof typeof DataQuality]
+
+
+export const EvidenceStatus = {
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  REJECTED: 'REJECTED',
+  DUPLICATE: 'DUPLICATE',
+  SUSPICIOUS: 'SUSPICIOUS'
+} as const
+
+export type EvidenceStatus = (typeof EvidenceStatus)[keyof typeof EvidenceStatus]
+
+
+export const EvidenceAuditAction = {
+  UPLOADED: 'UPLOADED',
+  DUPLICATE_DETECTED: 'DUPLICATE_DETECTED',
+  FLAGGED: 'FLAGGED',
+  VERIFIED: 'VERIFIED',
+  REJECTED: 'REJECTED',
+  XP_AWARDED: 'XP_AWARDED'
+} as const
+
+export type EvidenceAuditAction = (typeof EvidenceAuditAction)[keyof typeof EvidenceAuditAction]

@@ -307,6 +307,9 @@ export type UserWhereInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordListRelationFilter
   approvedCarbonRecords?: Prisma.CarbonRecordListRelationFilter
   socialPosts?: Prisma.SocialPostListRelationFilter
+  evidenceSubmissions?: Prisma.EvidenceSubmissionListRelationFilter
+  reviewedEvidence?: Prisma.EvidenceSubmissionListRelationFilter
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -332,6 +335,9 @@ export type UserOrderByWithRelationInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordOrderByRelationAggregateInput
   approvedCarbonRecords?: Prisma.CarbonRecordOrderByRelationAggregateInput
   socialPosts?: Prisma.SocialPostOrderByRelationAggregateInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionOrderByRelationAggregateInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionOrderByRelationAggregateInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
@@ -361,6 +367,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   submittedCarbonRecords?: Prisma.CarbonRecordListRelationFilter
   approvedCarbonRecords?: Prisma.CarbonRecordListRelationFilter
   socialPosts?: Prisma.SocialPostListRelationFilter
+  evidenceSubmissions?: Prisma.EvidenceSubmissionListRelationFilter
+  reviewedEvidence?: Prisma.EvidenceSubmissionListRelationFilter
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -428,6 +437,9 @@ export type UserCreateInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -451,6 +463,9 @@ export type UserUncheckedCreateInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserUpdateInput = {
@@ -474,6 +489,9 @@ export type UserUpdateInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -497,6 +515,9 @@ export type UserUncheckedUpdateInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -825,6 +846,52 @@ export type UserUpdateOneRequiredWithoutSocialPostsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSocialPostsInput, Prisma.UserUpdateWithoutSocialPostsInput>, Prisma.UserUncheckedUpdateWithoutSocialPostsInput>
 }
 
+export type UserCreateNestedOneWithoutEvidenceSubmissionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedCreateWithoutEvidenceSubmissionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEvidenceSubmissionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutReviewedEvidenceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedEvidenceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutEvidenceSubmissionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedCreateWithoutEvidenceSubmissionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEvidenceSubmissionsInput
+  upsert?: Prisma.UserUpsertWithoutEvidenceSubmissionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEvidenceSubmissionsInput, Prisma.UserUpdateWithoutEvidenceSubmissionsInput>, Prisma.UserUncheckedUpdateWithoutEvidenceSubmissionsInput>
+}
+
+export type UserUpdateOneWithoutReviewedEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedEvidenceInput
+  upsert?: Prisma.UserUpsertWithoutReviewedEvidenceInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewedEvidenceInput, Prisma.UserUpdateWithoutReviewedEvidenceInput>, Prisma.UserUncheckedUpdateWithoutReviewedEvidenceInput>
+}
+
+export type UserCreateNestedOneWithoutEvidenceAuditLogsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedCreateWithoutEvidenceAuditLogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEvidenceAuditLogsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutEvidenceAuditLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedCreateWithoutEvidenceAuditLogsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEvidenceAuditLogsInput
+  upsert?: Prisma.UserUpsertWithoutEvidenceAuditLogsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEvidenceAuditLogsInput, Prisma.UserUpdateWithoutEvidenceAuditLogsInput>, Prisma.UserUncheckedUpdateWithoutEvidenceAuditLogsInput>
+}
+
 export type UserCreateWithoutSessionsInput = {
   id: string
   name: string
@@ -845,6 +912,9 @@ export type UserCreateWithoutSessionsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -867,6 +937,9 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -905,6 +978,9 @@ export type UserUpdateWithoutSessionsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -927,6 +1003,9 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserCreateWithoutAccountsInput = {
@@ -949,6 +1028,9 @@ export type UserCreateWithoutAccountsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -971,6 +1053,9 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -1009,6 +1094,9 @@ export type UserUpdateWithoutAccountsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -1031,6 +1119,9 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserCreateWithoutOrganizationInput = {
@@ -1053,6 +1144,9 @@ export type UserCreateWithoutOrganizationInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutOrganizationInput = {
@@ -1075,6 +1169,9 @@ export type UserUncheckedCreateWithoutOrganizationInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutOrganizationInput = {
@@ -1144,6 +1241,9 @@ export type UserCreateWithoutDepartmentInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutDepartmentInput = {
@@ -1166,6 +1266,9 @@ export type UserUncheckedCreateWithoutDepartmentInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutDepartmentInput = {
@@ -1214,6 +1317,9 @@ export type UserCreateWithoutSubmittedCarbonRecordsInput = {
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutSubmittedCarbonRecordsInput = {
@@ -1236,6 +1342,9 @@ export type UserUncheckedCreateWithoutSubmittedCarbonRecordsInput = {
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutSubmittedCarbonRecordsInput = {
@@ -1263,6 +1372,9 @@ export type UserCreateWithoutApprovedCarbonRecordsInput = {
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutApprovedCarbonRecordsInput = {
@@ -1285,6 +1397,9 @@ export type UserUncheckedCreateWithoutApprovedCarbonRecordsInput = {
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutApprovedCarbonRecordsInput = {
@@ -1323,6 +1438,9 @@ export type UserUpdateWithoutSubmittedCarbonRecordsInput = {
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSubmittedCarbonRecordsInput = {
@@ -1345,6 +1463,9 @@ export type UserUncheckedUpdateWithoutSubmittedCarbonRecordsInput = {
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserUpsertWithoutApprovedCarbonRecordsInput = {
@@ -1378,6 +1499,9 @@ export type UserUpdateWithoutApprovedCarbonRecordsInput = {
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutApprovedCarbonRecordsInput = {
@@ -1400,6 +1524,9 @@ export type UserUncheckedUpdateWithoutApprovedCarbonRecordsInput = {
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserCreateWithoutSocialPostsInput = {
@@ -1422,6 +1549,9 @@ export type UserCreateWithoutSocialPostsInput = {
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
   submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutSocialPostsInput = {
@@ -1444,6 +1574,9 @@ export type UserUncheckedCreateWithoutSocialPostsInput = {
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutSocialPostsInput = {
@@ -1482,6 +1615,9 @@ export type UserUpdateWithoutSocialPostsInput = {
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSocialPostsInput = {
@@ -1504,6 +1640,357 @@ export type UserUncheckedUpdateWithoutSocialPostsInput = {
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutEvidenceSubmissionsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  organization?: Prisma.OrganizationCreateNestedOneWithoutEmployeesInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutEmployeesInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutEvidenceSubmissionsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  organizationId?: string | null
+  departmentId?: string | null
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutEvidenceSubmissionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedCreateWithoutEvidenceSubmissionsInput>
+}
+
+export type UserCreateWithoutReviewedEvidenceInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  organization?: Prisma.OrganizationCreateNestedOneWithoutEmployeesInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutEmployeesInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutReviewedEvidenceInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  organizationId?: string | null
+  departmentId?: string | null
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutReviewedEvidenceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedEvidenceInput>
+}
+
+export type UserUpsertWithoutEvidenceSubmissionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedUpdateWithoutEvidenceSubmissionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedCreateWithoutEvidenceSubmissionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutEvidenceSubmissionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutEvidenceSubmissionsInput, Prisma.UserUncheckedUpdateWithoutEvidenceSubmissionsInput>
+}
+
+export type UserUpdateWithoutEvidenceSubmissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  organization?: Prisma.OrganizationUpdateOneWithoutEmployeesNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutEmployeesNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutEvidenceSubmissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserUpsertWithoutReviewedEvidenceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewedEvidenceInput, Prisma.UserUncheckedUpdateWithoutReviewedEvidenceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedEvidenceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutReviewedEvidenceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewedEvidenceInput, Prisma.UserUncheckedUpdateWithoutReviewedEvidenceInput>
+}
+
+export type UserUpdateWithoutReviewedEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  organization?: Prisma.OrganizationUpdateOneWithoutEmployeesNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutEmployeesNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutReviewedEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutEvidenceAuditLogsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  organization?: Prisma.OrganizationCreateNestedOneWithoutEmployeesInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutEmployeesInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionCreateNestedManyWithoutReviewedByInput
+}
+
+export type UserUncheckedCreateWithoutEvidenceAuditLogsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: string
+  organizationId?: string | null
+  departmentId?: string | null
+  employeeCode?: string | null
+  designation?: string | null
+  status?: $Enums.UserStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  xp?: number
+  rewardPoints?: number
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutSubmittedByInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedCreateNestedManyWithoutApprovedByInput
+  socialPosts?: Prisma.SocialPostUncheckedCreateNestedManyWithoutAuthorInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutSubmittedByInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutReviewedByInput
+}
+
+export type UserCreateOrConnectWithoutEvidenceAuditLogsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedCreateWithoutEvidenceAuditLogsInput>
+}
+
+export type UserUpsertWithoutEvidenceAuditLogsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedUpdateWithoutEvidenceAuditLogsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedCreateWithoutEvidenceAuditLogsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutEvidenceAuditLogsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutEvidenceAuditLogsInput, Prisma.UserUncheckedUpdateWithoutEvidenceAuditLogsInput>
+}
+
+export type UserUpdateWithoutEvidenceAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  organization?: Prisma.OrganizationUpdateOneWithoutEmployeesNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutEmployeesNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutEvidenceAuditLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  designation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  xp?: Prisma.IntFieldUpdateOperationsInput | number
+  rewardPoints?: Prisma.IntFieldUpdateOperationsInput | number
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
+  approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
+  socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
 }
 
 export type UserCreateManyOrganizationInput = {
@@ -1543,6 +2030,9 @@ export type UserUpdateWithoutOrganizationInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutOrganizationInput = {
@@ -1565,6 +2055,9 @@ export type UserUncheckedUpdateWithoutOrganizationInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutOrganizationInput = {
@@ -1621,6 +2114,9 @@ export type UserUpdateWithoutDepartmentInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDepartmentInput = {
@@ -1643,6 +2139,9 @@ export type UserUncheckedUpdateWithoutDepartmentInput = {
   submittedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutSubmittedByNestedInput
   approvedCarbonRecords?: Prisma.CarbonRecordUncheckedUpdateManyWithoutApprovedByNestedInput
   socialPosts?: Prisma.SocialPostUncheckedUpdateManyWithoutAuthorNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutSubmittedByNestedInput
+  reviewedEvidence?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutReviewedByNestedInput
+  evidenceAuditLogs?: Prisma.EvidenceAuditLogUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutDepartmentInput = {
@@ -1673,6 +2172,9 @@ export type UserCountOutputType = {
   submittedCarbonRecords: number
   approvedCarbonRecords: number
   socialPosts: number
+  evidenceSubmissions: number
+  reviewedEvidence: number
+  evidenceAuditLogs: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1681,6 +2183,9 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   submittedCarbonRecords?: boolean | UserCountOutputTypeCountSubmittedCarbonRecordsArgs
   approvedCarbonRecords?: boolean | UserCountOutputTypeCountApprovedCarbonRecordsArgs
   socialPosts?: boolean | UserCountOutputTypeCountSocialPostsArgs
+  evidenceSubmissions?: boolean | UserCountOutputTypeCountEvidenceSubmissionsArgs
+  reviewedEvidence?: boolean | UserCountOutputTypeCountReviewedEvidenceArgs
+  evidenceAuditLogs?: boolean | UserCountOutputTypeCountEvidenceAuditLogsArgs
 }
 
 /**
@@ -1728,6 +2233,27 @@ export type UserCountOutputTypeCountSocialPostsArgs<ExtArgs extends runtime.Type
   where?: Prisma.SocialPostWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountEvidenceSubmissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvidenceSubmissionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewedEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvidenceSubmissionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountEvidenceAuditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvidenceAuditLogWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1752,6 +2278,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   submittedCarbonRecords?: boolean | Prisma.User$submittedCarbonRecordsArgs<ExtArgs>
   approvedCarbonRecords?: boolean | Prisma.User$approvedCarbonRecordsArgs<ExtArgs>
   socialPosts?: boolean | Prisma.User$socialPostsArgs<ExtArgs>
+  evidenceSubmissions?: boolean | Prisma.User$evidenceSubmissionsArgs<ExtArgs>
+  reviewedEvidence?: boolean | Prisma.User$reviewedEvidenceArgs<ExtArgs>
+  evidenceAuditLogs?: boolean | Prisma.User$evidenceAuditLogsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1784,6 +2313,9 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   submittedCarbonRecords?: boolean | Prisma.User$submittedCarbonRecordsArgs<ExtArgs>
   approvedCarbonRecords?: boolean | Prisma.User$approvedCarbonRecordsArgs<ExtArgs>
   socialPosts?: boolean | Prisma.User$socialPostsArgs<ExtArgs>
+  evidenceSubmissions?: boolean | Prisma.User$evidenceSubmissionsArgs<ExtArgs>
+  reviewedEvidence?: boolean | Prisma.User$reviewedEvidenceArgs<ExtArgs>
+  evidenceAuditLogs?: boolean | Prisma.User$evidenceAuditLogsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -1797,6 +2329,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     submittedCarbonRecords: Prisma.$CarbonRecordPayload<ExtArgs>[]
     approvedCarbonRecords: Prisma.$CarbonRecordPayload<ExtArgs>[]
     socialPosts: Prisma.$SocialPostPayload<ExtArgs>[]
+    evidenceSubmissions: Prisma.$EvidenceSubmissionPayload<ExtArgs>[]
+    reviewedEvidence: Prisma.$EvidenceSubmissionPayload<ExtArgs>[]
+    evidenceAuditLogs: Prisma.$EvidenceAuditLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2161,6 +2696,9 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   submittedCarbonRecords<T extends Prisma.User$submittedCarbonRecordsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$submittedCarbonRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CarbonRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   approvedCarbonRecords<T extends Prisma.User$approvedCarbonRecordsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$approvedCarbonRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CarbonRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   socialPosts<T extends Prisma.User$socialPostsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$socialPostsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SocialPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  evidenceSubmissions<T extends Prisma.User$evidenceSubmissionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$evidenceSubmissionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvidenceSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviewedEvidence<T extends Prisma.User$reviewedEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewedEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvidenceSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  evidenceAuditLogs<T extends Prisma.User$evidenceAuditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$evidenceAuditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvidenceAuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2708,6 +3246,78 @@ export type User$socialPostsArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.SocialPostScalarFieldEnum | Prisma.SocialPostScalarFieldEnum[]
+}
+
+/**
+ * User.evidenceSubmissions
+ */
+export type User$evidenceSubmissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EvidenceSubmission
+   */
+  select?: Prisma.EvidenceSubmissionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EvidenceSubmission
+   */
+  omit?: Prisma.EvidenceSubmissionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvidenceSubmissionInclude<ExtArgs> | null
+  where?: Prisma.EvidenceSubmissionWhereInput
+  orderBy?: Prisma.EvidenceSubmissionOrderByWithRelationInput | Prisma.EvidenceSubmissionOrderByWithRelationInput[]
+  cursor?: Prisma.EvidenceSubmissionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvidenceSubmissionScalarFieldEnum | Prisma.EvidenceSubmissionScalarFieldEnum[]
+}
+
+/**
+ * User.reviewedEvidence
+ */
+export type User$reviewedEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EvidenceSubmission
+   */
+  select?: Prisma.EvidenceSubmissionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EvidenceSubmission
+   */
+  omit?: Prisma.EvidenceSubmissionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvidenceSubmissionInclude<ExtArgs> | null
+  where?: Prisma.EvidenceSubmissionWhereInput
+  orderBy?: Prisma.EvidenceSubmissionOrderByWithRelationInput | Prisma.EvidenceSubmissionOrderByWithRelationInput[]
+  cursor?: Prisma.EvidenceSubmissionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvidenceSubmissionScalarFieldEnum | Prisma.EvidenceSubmissionScalarFieldEnum[]
+}
+
+/**
+ * User.evidenceAuditLogs
+ */
+export type User$evidenceAuditLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EvidenceAuditLog
+   */
+  select?: Prisma.EvidenceAuditLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EvidenceAuditLog
+   */
+  omit?: Prisma.EvidenceAuditLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvidenceAuditLogInclude<ExtArgs> | null
+  where?: Prisma.EvidenceAuditLogWhereInput
+  orderBy?: Prisma.EvidenceAuditLogOrderByWithRelationInput | Prisma.EvidenceAuditLogOrderByWithRelationInput[]
+  cursor?: Prisma.EvidenceAuditLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvidenceAuditLogScalarFieldEnum | Prisma.EvidenceAuditLogScalarFieldEnum[]
 }
 
 /**

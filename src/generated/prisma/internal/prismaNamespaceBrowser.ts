@@ -60,7 +60,9 @@ export const ModelName = {
   EmissionFactor: 'EmissionFactor',
   CarbonRecord: 'CarbonRecord',
   EmissionPolicy: 'EmissionPolicy',
-  SocialPost: 'SocialPost'
+  SocialPost: 'SocialPost',
+  EvidenceSubmission: 'EvidenceSubmission',
+  EvidenceAuditLog: 'EvidenceAuditLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -277,6 +279,56 @@ export const SocialPostScalarFieldEnum = {
 export type SocialPostScalarFieldEnum = (typeof SocialPostScalarFieldEnum)[keyof typeof SocialPostScalarFieldEnum]
 
 
+export const EvidenceSubmissionScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  departmentId: 'departmentId',
+  submittedById: 'submittedById',
+  reviewedById: 'reviewedById',
+  carbonRecordId: 'carbonRecordId',
+  fileUrl: 'fileUrl',
+  storageKey: 'storageKey',
+  fileName: 'fileName',
+  mimeType: 'mimeType',
+  fileSize: 'fileSize',
+  sha256Hash: 'sha256Hash',
+  perceptualHash: 'perceptualHash',
+  width: 'width',
+  height: 'height',
+  capturedAt: 'capturedAt',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  challengeCode: 'challengeCode',
+  description: 'description',
+  metadataJson: 'metadataJson',
+  status: 'status',
+  duplicateOfId: 'duplicateOfId',
+  similarityScore: 'similarityScore',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  xpAwarded: 'xpAwarded',
+  pointsAwarded: 'pointsAwarded',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EvidenceSubmissionScalarFieldEnum = (typeof EvidenceSubmissionScalarFieldEnum)[keyof typeof EvidenceSubmissionScalarFieldEnum]
+
+
+export const EvidenceAuditLogScalarFieldEnum = {
+  id: 'id',
+  evidenceId: 'evidenceId',
+  actorId: 'actorId',
+  action: 'action',
+  details: 'details',
+  previousStatus: 'previousStatus',
+  newStatus: 'newStatus',
+  createdAt: 'createdAt'
+} as const
+
+export type EvidenceAuditLogScalarFieldEnum = (typeof EvidenceAuditLogScalarFieldEnum)[keyof typeof EvidenceAuditLogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -438,4 +490,37 @@ export const SocialPostOrderByRelevanceFieldEnum = {
 } as const
 
 export type SocialPostOrderByRelevanceFieldEnum = (typeof SocialPostOrderByRelevanceFieldEnum)[keyof typeof SocialPostOrderByRelevanceFieldEnum]
+
+
+export const EvidenceSubmissionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  departmentId: 'departmentId',
+  submittedById: 'submittedById',
+  reviewedById: 'reviewedById',
+  carbonRecordId: 'carbonRecordId',
+  fileUrl: 'fileUrl',
+  storageKey: 'storageKey',
+  fileName: 'fileName',
+  mimeType: 'mimeType',
+  sha256Hash: 'sha256Hash',
+  perceptualHash: 'perceptualHash',
+  challengeCode: 'challengeCode',
+  description: 'description',
+  metadataJson: 'metadataJson',
+  duplicateOfId: 'duplicateOfId',
+  reviewNotes: 'reviewNotes'
+} as const
+
+export type EvidenceSubmissionOrderByRelevanceFieldEnum = (typeof EvidenceSubmissionOrderByRelevanceFieldEnum)[keyof typeof EvidenceSubmissionOrderByRelevanceFieldEnum]
+
+
+export const EvidenceAuditLogOrderByRelevanceFieldEnum = {
+  id: 'id',
+  evidenceId: 'evidenceId',
+  actorId: 'actorId',
+  details: 'details'
+} as const
+
+export type EvidenceAuditLogOrderByRelevanceFieldEnum = (typeof EvidenceAuditLogOrderByRelevanceFieldEnum)[keyof typeof EvidenceAuditLogOrderByRelevanceFieldEnum]
 

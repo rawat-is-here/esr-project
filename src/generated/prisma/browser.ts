@@ -67,3 +67,13 @@ export type EmissionPolicy = Prisma.EmissionPolicyModel
  * 
  */
 export type SocialPost = Prisma.SocialPostModel
+/**
+ * Model EvidenceSubmission
+ * 
+ */
+export type EvidenceSubmission = Prisma.EvidenceSubmissionModel
+/**
+ * Model EvidenceAuditLog
+ * 
+ */
+export type EvidenceAuditLog = Prisma.EvidenceAuditLogModel

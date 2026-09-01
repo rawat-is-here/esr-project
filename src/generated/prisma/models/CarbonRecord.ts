@@ -445,6 +445,7 @@ export type CarbonRecordWhereInput = {
   submittedBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   approvedBy?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   emissionFactor?: Prisma.XOR<Prisma.EmissionFactorScalarRelationFilter, Prisma.EmissionFactorWhereInput>
+  evidenceSubmissions?: Prisma.EvidenceSubmissionListRelationFilter
 }
 
 export type CarbonRecordOrderByWithRelationInput = {
@@ -485,6 +486,7 @@ export type CarbonRecordOrderByWithRelationInput = {
   submittedBy?: Prisma.UserOrderByWithRelationInput
   approvedBy?: Prisma.UserOrderByWithRelationInput
   emissionFactor?: Prisma.EmissionFactorOrderByWithRelationInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionOrderByRelationAggregateInput
   _relevance?: Prisma.CarbonRecordOrderByRelevanceInput
 }
 
@@ -529,6 +531,7 @@ export type CarbonRecordWhereUniqueInput = Prisma.AtLeast<{
   submittedBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   approvedBy?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   emissionFactor?: Prisma.XOR<Prisma.EmissionFactorScalarRelationFilter, Prisma.EmissionFactorWhereInput>
+  evidenceSubmissions?: Prisma.EvidenceSubmissionListRelationFilter
 }, "id">
 
 export type CarbonRecordOrderByWithAggregationInput = {
@@ -642,6 +645,7 @@ export type CarbonRecordCreateInput = {
   submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
   approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
   emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateInput = {
@@ -677,6 +681,7 @@ export type CarbonRecordUncheckedCreateInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUpdateInput = {
@@ -712,6 +717,7 @@ export type CarbonRecordUpdateInput = {
   submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
   approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
   emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateInput = {
@@ -747,6 +753,7 @@ export type CarbonRecordUncheckedUpdateInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordCreateManyInput = {
@@ -982,6 +989,11 @@ export type CarbonRecordSumOrderByAggregateInput = {
   co2eAmount?: Prisma.SortOrder
 }
 
+export type CarbonRecordNullableScalarRelationFilter = {
+  is?: Prisma.CarbonRecordWhereInput | null
+  isNot?: Prisma.CarbonRecordWhereInput | null
+}
+
 export type CarbonRecordCreateNestedManyWithoutSubmittedByInput = {
   create?: Prisma.XOR<Prisma.CarbonRecordCreateWithoutSubmittedByInput, Prisma.CarbonRecordUncheckedCreateWithoutSubmittedByInput> | Prisma.CarbonRecordCreateWithoutSubmittedByInput[] | Prisma.CarbonRecordUncheckedCreateWithoutSubmittedByInput[]
   connectOrCreate?: Prisma.CarbonRecordCreateOrConnectWithoutSubmittedByInput | Prisma.CarbonRecordCreateOrConnectWithoutSubmittedByInput[]
@@ -1200,6 +1212,22 @@ export type EnumCarbonRecordStatusFieldUpdateOperationsInput = {
   set?: $Enums.CarbonRecordStatus
 }
 
+export type CarbonRecordCreateNestedOneWithoutEvidenceSubmissionsInput = {
+  create?: Prisma.XOR<Prisma.CarbonRecordCreateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedCreateWithoutEvidenceSubmissionsInput>
+  connectOrCreate?: Prisma.CarbonRecordCreateOrConnectWithoutEvidenceSubmissionsInput
+  connect?: Prisma.CarbonRecordWhereUniqueInput
+}
+
+export type CarbonRecordUpdateOneWithoutEvidenceSubmissionsNestedInput = {
+  create?: Prisma.XOR<Prisma.CarbonRecordCreateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedCreateWithoutEvidenceSubmissionsInput>
+  connectOrCreate?: Prisma.CarbonRecordCreateOrConnectWithoutEvidenceSubmissionsInput
+  upsert?: Prisma.CarbonRecordUpsertWithoutEvidenceSubmissionsInput
+  disconnect?: Prisma.CarbonRecordWhereInput | boolean
+  delete?: Prisma.CarbonRecordWhereInput | boolean
+  connect?: Prisma.CarbonRecordWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CarbonRecordUpdateToOneWithWhereWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUpdateWithoutEvidenceSubmissionsInput>, Prisma.CarbonRecordUncheckedUpdateWithoutEvidenceSubmissionsInput>
+}
+
 export type CarbonRecordCreateWithoutSubmittedByInput = {
   id?: string
   activityCode: string
@@ -1232,6 +1260,7 @@ export type CarbonRecordCreateWithoutSubmittedByInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutCarbonRecordsInput
   approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
   emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateWithoutSubmittedByInput = {
@@ -1266,6 +1295,7 @@ export type CarbonRecordUncheckedCreateWithoutSubmittedByInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordCreateOrConnectWithoutSubmittedByInput = {
@@ -1310,6 +1340,7 @@ export type CarbonRecordCreateWithoutApprovedByInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutCarbonRecordsInput
   submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
   emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateWithoutApprovedByInput = {
@@ -1344,6 +1375,7 @@ export type CarbonRecordUncheckedCreateWithoutApprovedByInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordCreateOrConnectWithoutApprovedByInput = {
@@ -1458,6 +1490,7 @@ export type CarbonRecordCreateWithoutOrganizationInput = {
   submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
   approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
   emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateWithoutOrganizationInput = {
@@ -1492,6 +1525,7 @@ export type CarbonRecordUncheckedCreateWithoutOrganizationInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordCreateOrConnectWithoutOrganizationInput = {
@@ -1552,6 +1586,7 @@ export type CarbonRecordCreateWithoutDepartmentInput = {
   submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
   approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
   emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateWithoutDepartmentInput = {
@@ -1586,6 +1621,7 @@ export type CarbonRecordUncheckedCreateWithoutDepartmentInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordCreateOrConnectWithoutDepartmentInput = {
@@ -1646,6 +1682,7 @@ export type CarbonRecordCreateWithoutEmissionFactorInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutCarbonRecordsInput
   submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
   approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordUncheckedCreateWithoutEmissionFactorInput = {
@@ -1680,6 +1717,7 @@ export type CarbonRecordUncheckedCreateWithoutEmissionFactorInput = {
   hash?: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedCreateNestedManyWithoutCarbonRecordInput
 }
 
 export type CarbonRecordCreateOrConnectWithoutEmissionFactorInput = {
@@ -1706,6 +1744,162 @@ export type CarbonRecordUpdateWithWhereUniqueWithoutEmissionFactorInput = {
 export type CarbonRecordUpdateManyWithWhereWithoutEmissionFactorInput = {
   where: Prisma.CarbonRecordScalarWhereInput
   data: Prisma.XOR<Prisma.CarbonRecordUpdateManyMutationInput, Prisma.CarbonRecordUncheckedUpdateManyWithoutEmissionFactorInput>
+}
+
+export type CarbonRecordCreateWithoutEvidenceSubmissionsInput = {
+  id?: string
+  activityCode: string
+  activityName: string
+  industryCode?: string | null
+  category: string
+  subcategory?: string | null
+  scope: $Enums.EmissionScope
+  activityAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityUnit: string
+  factorValue: runtime.Decimal | runtime.DecimalJsLike | number | string
+  factorUnit: string
+  co2eAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  co2eUnit?: string
+  calculationMethod?: string
+  calculationFormula?: string | null
+  dataQuality?: $Enums.DataQuality
+  notes?: string | null
+  activityData?: string | null
+  evidenceUrl?: string | null
+  status?: $Enums.CarbonRecordStatus
+  occurredAt: Date | string
+  submittedAt?: Date | string
+  approvedAt?: Date | string | null
+  prevHash?: string
+  hash?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  organization: Prisma.OrganizationCreateNestedOneWithoutCarbonRecordsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutCarbonRecordsInput
+  submittedBy: Prisma.UserCreateNestedOneWithoutSubmittedCarbonRecordsInput
+  approvedBy?: Prisma.UserCreateNestedOneWithoutApprovedCarbonRecordsInput
+  emissionFactor: Prisma.EmissionFactorCreateNestedOneWithoutCarbonRecordsInput
+}
+
+export type CarbonRecordUncheckedCreateWithoutEvidenceSubmissionsInput = {
+  id?: string
+  organizationId: string
+  departmentId?: string | null
+  submittedById: string
+  approvedById?: string | null
+  emissionFactorId: string
+  activityCode: string
+  activityName: string
+  industryCode?: string | null
+  category: string
+  subcategory?: string | null
+  scope: $Enums.EmissionScope
+  activityAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityUnit: string
+  factorValue: runtime.Decimal | runtime.DecimalJsLike | number | string
+  factorUnit: string
+  co2eAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  co2eUnit?: string
+  calculationMethod?: string
+  calculationFormula?: string | null
+  dataQuality?: $Enums.DataQuality
+  notes?: string | null
+  activityData?: string | null
+  evidenceUrl?: string | null
+  status?: $Enums.CarbonRecordStatus
+  occurredAt: Date | string
+  submittedAt?: Date | string
+  approvedAt?: Date | string | null
+  prevHash?: string
+  hash?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type CarbonRecordCreateOrConnectWithoutEvidenceSubmissionsInput = {
+  where: Prisma.CarbonRecordWhereUniqueInput
+  create: Prisma.XOR<Prisma.CarbonRecordCreateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedCreateWithoutEvidenceSubmissionsInput>
+}
+
+export type CarbonRecordUpsertWithoutEvidenceSubmissionsInput = {
+  update: Prisma.XOR<Prisma.CarbonRecordUpdateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedUpdateWithoutEvidenceSubmissionsInput>
+  create: Prisma.XOR<Prisma.CarbonRecordCreateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedCreateWithoutEvidenceSubmissionsInput>
+  where?: Prisma.CarbonRecordWhereInput
+}
+
+export type CarbonRecordUpdateToOneWithWhereWithoutEvidenceSubmissionsInput = {
+  where?: Prisma.CarbonRecordWhereInput
+  data: Prisma.XOR<Prisma.CarbonRecordUpdateWithoutEvidenceSubmissionsInput, Prisma.CarbonRecordUncheckedUpdateWithoutEvidenceSubmissionsInput>
+}
+
+export type CarbonRecordUpdateWithoutEvidenceSubmissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  activityCode?: Prisma.StringFieldUpdateOperationsInput | string
+  activityName?: Prisma.StringFieldUpdateOperationsInput | string
+  industryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  subcategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scope?: Prisma.EnumEmissionScopeFieldUpdateOperationsInput | $Enums.EmissionScope
+  activityAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  factorValue?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  factorUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  co2eAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  co2eUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationMethod?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationFormula?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataQuality?: Prisma.EnumDataQualityFieldUpdateOperationsInput | $Enums.DataQuality
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  activityData?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  evidenceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumCarbonRecordStatusFieldUpdateOperationsInput | $Enums.CarbonRecordStatus
+  occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  submittedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  prevHash?: Prisma.StringFieldUpdateOperationsInput | string
+  hash?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  organization?: Prisma.OrganizationUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutCarbonRecordsNestedInput
+  submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
+  approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
+  emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+}
+
+export type CarbonRecordUncheckedUpdateWithoutEvidenceSubmissionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organizationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  submittedById?: Prisma.StringFieldUpdateOperationsInput | string
+  approvedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emissionFactorId?: Prisma.StringFieldUpdateOperationsInput | string
+  activityCode?: Prisma.StringFieldUpdateOperationsInput | string
+  activityName?: Prisma.StringFieldUpdateOperationsInput | string
+  industryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  subcategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scope?: Prisma.EnumEmissionScopeFieldUpdateOperationsInput | $Enums.EmissionScope
+  activityAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  activityUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  factorValue?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  factorUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  co2eAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  co2eUnit?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationMethod?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationFormula?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataQuality?: Prisma.EnumDataQualityFieldUpdateOperationsInput | $Enums.DataQuality
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  activityData?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  evidenceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumCarbonRecordStatusFieldUpdateOperationsInput | $Enums.CarbonRecordStatus
+  occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  submittedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  prevHash?: Prisma.StringFieldUpdateOperationsInput | string
+  hash?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CarbonRecordCreateManySubmittedByInput = {
@@ -1808,6 +2002,7 @@ export type CarbonRecordUpdateWithoutSubmittedByInput = {
   department?: Prisma.DepartmentUpdateOneWithoutCarbonRecordsNestedInput
   approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
   emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateWithoutSubmittedByInput = {
@@ -1842,6 +2037,7 @@ export type CarbonRecordUncheckedUpdateWithoutSubmittedByInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateManyWithoutSubmittedByInput = {
@@ -1910,6 +2106,7 @@ export type CarbonRecordUpdateWithoutApprovedByInput = {
   department?: Prisma.DepartmentUpdateOneWithoutCarbonRecordsNestedInput
   submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
   emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateWithoutApprovedByInput = {
@@ -1944,6 +2141,7 @@ export type CarbonRecordUncheckedUpdateWithoutApprovedByInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateManyWithoutApprovedByInput = {
@@ -2046,6 +2244,7 @@ export type CarbonRecordUpdateWithoutOrganizationInput = {
   submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
   approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
   emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateWithoutOrganizationInput = {
@@ -2080,6 +2279,7 @@ export type CarbonRecordUncheckedUpdateWithoutOrganizationInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateManyWithoutOrganizationInput = {
@@ -2182,6 +2382,7 @@ export type CarbonRecordUpdateWithoutDepartmentInput = {
   submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
   approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
   emissionFactor?: Prisma.EmissionFactorUpdateOneRequiredWithoutCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateWithoutDepartmentInput = {
@@ -2216,6 +2417,7 @@ export type CarbonRecordUncheckedUpdateWithoutDepartmentInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateManyWithoutDepartmentInput = {
@@ -2318,6 +2520,7 @@ export type CarbonRecordUpdateWithoutEmissionFactorInput = {
   department?: Prisma.DepartmentUpdateOneWithoutCarbonRecordsNestedInput
   submittedBy?: Prisma.UserUpdateOneRequiredWithoutSubmittedCarbonRecordsNestedInput
   approvedBy?: Prisma.UserUpdateOneWithoutApprovedCarbonRecordsNestedInput
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateWithoutEmissionFactorInput = {
@@ -2352,6 +2555,7 @@ export type CarbonRecordUncheckedUpdateWithoutEmissionFactorInput = {
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidenceSubmissions?: Prisma.EvidenceSubmissionUncheckedUpdateManyWithoutCarbonRecordNestedInput
 }
 
 export type CarbonRecordUncheckedUpdateManyWithoutEmissionFactorInput = {
@@ -2388,6 +2592,35 @@ export type CarbonRecordUncheckedUpdateManyWithoutEmissionFactorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type CarbonRecordCountOutputType
+ */
+
+export type CarbonRecordCountOutputType = {
+  evidenceSubmissions: number
+}
+
+export type CarbonRecordCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  evidenceSubmissions?: boolean | CarbonRecordCountOutputTypeCountEvidenceSubmissionsArgs
+}
+
+/**
+ * CarbonRecordCountOutputType without action
+ */
+export type CarbonRecordCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CarbonRecordCountOutputType
+   */
+  select?: Prisma.CarbonRecordCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * CarbonRecordCountOutputType without action
+ */
+export type CarbonRecordCountOutputTypeCountEvidenceSubmissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EvidenceSubmissionWhereInput
+}
 
 
 export type CarbonRecordSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2428,6 +2661,8 @@ export type CarbonRecordSelect<ExtArgs extends runtime.Types.Extensions.Internal
   submittedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   approvedBy?: boolean | Prisma.CarbonRecord$approvedByArgs<ExtArgs>
   emissionFactor?: boolean | Prisma.EmissionFactorDefaultArgs<ExtArgs>
+  evidenceSubmissions?: boolean | Prisma.CarbonRecord$evidenceSubmissionsArgs<ExtArgs>
+  _count?: boolean | Prisma.CarbonRecordCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["carbonRecord"]>
 
 
@@ -2474,6 +2709,8 @@ export type CarbonRecordInclude<ExtArgs extends runtime.Types.Extensions.Interna
   submittedBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   approvedBy?: boolean | Prisma.CarbonRecord$approvedByArgs<ExtArgs>
   emissionFactor?: boolean | Prisma.EmissionFactorDefaultArgs<ExtArgs>
+  evidenceSubmissions?: boolean | Prisma.CarbonRecord$evidenceSubmissionsArgs<ExtArgs>
+  _count?: boolean | Prisma.CarbonRecordCountOutputTypeDefaultArgs<ExtArgs>
 }
 
 export type $CarbonRecordPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2484,6 +2721,7 @@ export type $CarbonRecordPayload<ExtArgs extends runtime.Types.Extensions.Intern
     submittedBy: Prisma.$UserPayload<ExtArgs>
     approvedBy: Prisma.$UserPayload<ExtArgs> | null
     emissionFactor: Prisma.$EmissionFactorPayload<ExtArgs>
+    evidenceSubmissions: Prisma.$EvidenceSubmissionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2863,6 +3101,7 @@ export interface Prisma__CarbonRecordClient<T, Null = never, ExtArgs extends run
   submittedBy<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   approvedBy<T extends Prisma.CarbonRecord$approvedByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CarbonRecord$approvedByArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   emissionFactor<T extends Prisma.EmissionFactorDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EmissionFactorDefaultArgs<ExtArgs>>): Prisma.Prisma__EmissionFactorClient<runtime.Types.Result.GetResult<Prisma.$EmissionFactorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  evidenceSubmissions<T extends Prisma.CarbonRecord$evidenceSubmissionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CarbonRecord$evidenceSubmissionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EvidenceSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3307,6 +3546,30 @@ export type CarbonRecord$approvedByArgs<ExtArgs extends runtime.Types.Extensions
    */
   include?: Prisma.UserInclude<ExtArgs> | null
   where?: Prisma.UserWhereInput
+}
+
+/**
+ * CarbonRecord.evidenceSubmissions
+ */
+export type CarbonRecord$evidenceSubmissionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EvidenceSubmission
+   */
+  select?: Prisma.EvidenceSubmissionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EvidenceSubmission
+   */
+  omit?: Prisma.EvidenceSubmissionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EvidenceSubmissionInclude<ExtArgs> | null
+  where?: Prisma.EvidenceSubmissionWhereInput
+  orderBy?: Prisma.EvidenceSubmissionOrderByWithRelationInput | Prisma.EvidenceSubmissionOrderByWithRelationInput[]
+  cursor?: Prisma.EvidenceSubmissionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EvidenceSubmissionScalarFieldEnum | Prisma.EvidenceSubmissionScalarFieldEnum[]
 }
 
 /**

@@ -15,7 +15,6 @@ type SeedFactor = {
 };
 
 const factors: SeedFactor[] = [
-  // ADMINISTRATION
   {
     activityCode: "ADMIN_ELECTRICITY_KWH",
     activityName: "Administrative office electricity",
@@ -46,8 +45,6 @@ const factors: SeedFactor[] = [
     factorValue: "0.34400000",
     description: "Water supplied to administrative offices.",
   },
-
-  // HUMAN RESOURCES
   {
     activityCode: "HR_EMPLOYEE_CAR_COMMUTE_KM",
     activityName: "Employee commuting by car",
@@ -88,8 +85,6 @@ const factors: SeedFactor[] = [
     factorValue: "31.00000000",
     description: "Hotel room nights used during company travel.",
   },
-
-  // FINANCE
   {
     activityCode: "FIN_OFFICE_ELECTRICITY_KWH",
     activityName: "Finance office electricity",
@@ -120,8 +115,6 @@ const factors: SeedFactor[] = [
     factorValue: "0.17000000",
     description: "Road travel for finance and banking operations.",
   },
-
-  // PURCHASE
   {
     activityCode: "PUR_STEEL_KG",
     activityName: "Steel purchased",
@@ -162,8 +155,6 @@ const factors: SeedFactor[] = [
     factorValue: "1.30000000",
     description: "Purchased paper and cardboard.",
   },
-
-  // MANUFACTURING
   {
     activityCode: "MFG_DIESEL_LITRE",
     activityName: "Diesel used in machinery",
@@ -214,8 +205,6 @@ const factors: SeedFactor[] = [
     factorValue: "1430.00000000",
     description: "R134a refrigerant released from equipment.",
   },
-
-  // WAREHOUSE
   {
     activityCode: "WH_ELECTRICITY_KWH",
     activityName: "Warehouse electricity consumption",
@@ -266,8 +255,6 @@ const factors: SeedFactor[] = [
     factorValue: "3.10000000",
     description: "Plastic packaging used in warehouse operations.",
   },
-
-  // COMPLIANCE
   {
     activityCode: "COMP_OFFICE_ELECTRICITY_KWH",
     activityName: "Compliance office electricity",
@@ -298,8 +285,6 @@ const factors: SeedFactor[] = [
     factorValue: "1.30000000",
     description: "Paper used for policies and audit documentation.",
   },
-
-  // SUSTAINABILITY
   {
     activityCode: "ESG_WATER_M3",
     activityName: "Organization water consumption",
